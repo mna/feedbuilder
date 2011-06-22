@@ -1,0 +1,9 @@
+!!! 5
+html
+    title #{title}
+    body
+        h1 Welcome to #{title}
+        form(method='POST', action='/')
+            input(type='radio', name='source', value='fb')
+            input(type='radio', name='source', value='tw', checked)
+            input(type='submit',value='auth')

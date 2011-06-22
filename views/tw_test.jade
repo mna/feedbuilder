@@ -1,0 +1,11 @@
+!!! 5
+html
+    title Twitter Test
+    body
+        h1 Welcome to Twitter Test
+        p token = 
+        code #{token}
+        
+        form(action='/tw_test', method='POST')
+            input(type='hidden', name='token', value='#{token}')
+            input(type='submit', value='Test 1')
