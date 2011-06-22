@@ -1,0 +1,25 @@
+!!! 5
+html
+    head
+        meta(charset="utf-8") 
+        meta(name="viewport", content="width=device-width, initial-scale=1")
+        title Select Feed Source - FeedBuilder
+        link(rel="stylesheet", href="http://code.jquery.com/mobile/1.0b1/jquery.mobile-1.0b1.min.css")
+        script(src="http://code.jquery.com/jquery-1.6.1.min.js")
+        script(src="http://code.jquery.com/mobile/1.0b1/jquery.mobile-1.0b1.min.js")
+    body
+        #page(data-role="page")
+            #header(data-role="header")
+                h1 Feed Source
+            #content(data-role="content")
+                p
+                    | Select the source of the feed. In the next steps, you will be able to
+                    | further refine the criteria based on the source you've selected.
+                form(id="fb", method="POST", action="/connect/fb")
+                    input(type="submit", name="source", value="Create a Facebook Feed")
+                form(id="tw", method="POST", action="/connect/tw")
+                    input(type="submit", name="source", value="Create a Twitter Feed")
+                form(id="ex", method="POST", action="/connect/ex")
+                    input(type="submit", name="source", value="Create From an Existing Feed")
+            #footer(data-role="footer")
+                p &copy; Martin Angers 2011 - Alpha version
