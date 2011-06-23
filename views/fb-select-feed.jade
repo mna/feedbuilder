@@ -1,0 +1,29 @@
+!!! 5
+html
+    head
+        meta(charset="utf-8") 
+        meta(name="viewport", content="width=device-width, initial-scale=1")
+        title Select Facebook Feed Source - FeedBuilder
+        link(rel="stylesheet", href="http://code.jquery.com/mobile/1.0b1/jquery.mobile-1.0b1.min.css")
+        script(src="http://code.jquery.com/jquery-1.6.1.min.js")
+        script(src="http://code.jquery.com/mobile/1.0b1/jquery.mobile-1.0b1.min.js")
+    body
+        #page(data-role="page")
+            #header(data-role="header")
+                h1 Facebook Source
+            #content(data-role="content")
+                p
+                    | Select the source of the Facebook posts you want to include in your feed.
+
+                form
+                    #menuSource(data-role="fieldcontain")
+                        label(for="select-fb-source", class="select") Select Facebook Source:
+                        select(name="select-fb-source", id="select-fb-source", data-native-menu="false")
+                            option(value="myfeed") My News Feed
+                            option(value="mywall") My Wall
+                            option(value="friendwall") A Friend's Wall
+                            option(value="pagewall") A Page's Wall
+                            option(value="eventwall") An Event's Wall
+
+            #footer(data-role="footer")
+                p &copy; Martin Angers 2011 - Alpha version

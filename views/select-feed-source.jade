@@ -15,11 +15,8 @@ html
                 p
                     | Select the source of the feed. In the next steps, you will be able to
                     | further refine the criteria based on the source you've selected.
-                form(id="fb", method="POST", action="/connect/fb")
-                    input(type="submit", name="source", value="Create a Facebook Feed")
-                form(id="tw", method="POST", action="/connect/tw")
-                    input(type="submit", name="source", value="Create a Twitter Feed")
-                form(id="ex", method="POST", action="/connect/ex")
-                    input(type="submit", name="source", value="Create From an Existing Feed")
+                a(href="/connect/fb", data-role="button", rel="external") Create a Facebook Feed
+                a(href="/connect/tw", data-role="button", rel="external") Create a Twitter Feed
+                a(href="/connect/ex", data-role="button", rel="external") Edit an Existing Feed
             #footer(data-role="footer")
                 p &copy; Martin Angers 2011 - Alpha version
