@@ -3,28 +3,28 @@ html
     head
         meta(charset="utf-8") 
         meta(name="viewport", content="width=device-width, initial-scale=1")
-        title Select Facebook Friend - FeedBuilder
+        title Select Facebook Page - FeedBuilder
         link(rel="stylesheet", href="http://code.jquery.com/mobile/1.0b1/jquery.mobile-1.0b1.min.css")
         script(src="http://code.jquery.com/jquery-1.6.1.min.js")
         script(src="http://code.jquery.com/mobile/1.0b1/jquery.mobile-1.0b1.min.js")
     body
-        #page(data-role="page", data-url="/fb/select-friend")
+        #page(data-role="page", data-url="/fb/select-page")
             #header(data-role="header")
-                p Facebook Friend
+                p Facebook Page
             #content(data-role="content")
                 p
-                    | Select the friend from whom wall posts will be included in the feed.
+                    | Select the page from which wall posts will be included in the feed.
 
-                form(method="POST", action="/fb/select-facebook-source")
-                    - if (friends && friends.data && friends.data.length)
-                    ul(data-role="listview", data-filter="true", data-filter-placeholder="Filter friends...")
+                form(method="POST", action="/fb/select-page")
+                    - if (pages && pages.data && pages.data.length)
+                    ul(data-role="listview", data-filter="true", data-filter-placeholder="Filter pages...")
                         - var newChar = '';
-                        - friends.data.forEach(function(friend){
-                            - if (friend.name.charAt(0) !== newChar) {
-                            - newChar = friend.name.charAt(0);
+                        - pages.data.forEach(function(page){
+                            - if (page.name.charAt(0) !== newChar) {
+                            - newChar = page.name.charAt(0);
                             li(data-role="list-divider")= newChar.toUpperCase()
                             - }
-                            li!= '<img src="http://graph.facebook.com/' + friend.id.toString() + '/picture" alt="' + friend.name + '" /><span>' + friend.name + '</span>'
+                            li!= '<img src="http://graph.facebook.com/' + page.id.toString() + '/picture" alt="' + page.name + '" /><span>' + page.name + '</span>'
                         - })
                 
                     input(type="submit", value="Next Step", data-icon="arrow-r", data-iconpos="right")

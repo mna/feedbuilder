@@ -1,0 +1,17 @@
+!!! 5
+html
+    head
+        meta(charset="utf-8") 
+        meta(name="viewport", content="width=device-width, initial-scale=1")
+        title #{title} - FeedBuilder
+        link(rel="stylesheet", href="http://code.jquery.com/mobile/1.0b1/jquery.mobile-1.0b1.min.css")
+        script(src="http://code.jquery.com/jquery-1.6.1.min.js")
+        script(src="http://code.jquery.com/mobile/1.0b1/jquery.mobile-1.0b1.min.js")
+    body
+        #page(data-role="page")
+            #header(data-role="header")
+                p #{subtitle}
+            #content(data-role="content")
+                !=body
+            #footer(data-role="footer")
+                p &copy; Martin Angers 2011 - Alpha version

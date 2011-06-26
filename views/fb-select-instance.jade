@@ -1,0 +1,16 @@
+p #{infoText}
+
+form(method="POST", action="/fb")
+    - if (instanceArray && instanceArray.length)
+    ul(data-role="listview", data-filter="true", data-filter-placeholder="Filter...")
+        - var newChar = '';
+        - instanceArray.forEach(function(inst){
+            - if (inst.name.charAt(0) !== newChar) {
+            - newChar = inst.name.charAt(0);
+            li(data-role="list-divider")= newChar.toUpperCase()
+            - }
+            li!= '<img src="http://graph.facebook.com/' + inst.id.toString() + '/picture" alt="' + inst.name + '" /><span>' + inst.name + '</span>'
+        - })
+
+    input(type="submit", value="Next Step", data-icon="arrow-r", data-iconpos="right")
+a(href="/fb?back=1", data-role="button", data-icon="arrow-l") Back To Facebook Source
