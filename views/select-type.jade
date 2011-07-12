@@ -1,0 +1,14 @@
+#page(data-role="page", data-url="#{url}")
+    #header(data-role="header")
+        a(href="/", data-icon="arrow-l", data-direction="reverse") Back
+        h1 #{subtitle}
+        a(href="/", data-icon="home", data-direction="reverse") Home
+    #content(data-role="content")
+        p
+            | Select the source of the feed. In the next steps, you will be able to
+            | further refine the criteria based on the source you've selected.
+        a(href="/connect/fb", data-role="button", rel="external") Create a Facebook Feed
+        a(href="/connect/tw", data-role="button", rel="external") Create a Twitter Feed
+        a(href="/connect/ex", data-role="button", rel="external") Edit an Existing Feed
+    #footer(data-role="footer")
+        p &copy; Martin Angers 2011 - Alpha version

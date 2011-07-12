@@ -1,9 +1,10 @@
-!!! 5
-html
-    title Test Home
-    body
-        h1 Welcome to Test Home
-        form(method='POST', action='/')
-            input(type='radio', name='source', value='fb')
-            input(type='radio', name='source', value='tw', checked)
-            input(type='submit',value='auth')
+#page(data-role="page", data-url="#{url}")
+    #header(data-role="header")
+        h1 #{subtitle}
+    #content(data-role="content")
+        p
+            | Welcome to FeedBuilder!
+        
+        a(href="/new/select-type/", data-role="button", data-icon="plus") New Feed
+    #footer(data-role="footer")
+        p &copy; Martin Angers 2011 - Alpha version

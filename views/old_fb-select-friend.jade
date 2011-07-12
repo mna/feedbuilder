@@ -1,0 +1,34 @@
+!!! 5
+html
+    head
+        meta(charset="utf-8") 
+        meta(name="viewport", content="width=device-width, initial-scale=1")
+        title Select Facebook Friend - FeedBuilder
+        link(rel="stylesheet", href="http://code.jquery.com/mobile/1.0b1/jquery.mobile-1.0b1.min.css")
+        script(src="http://code.jquery.com/jquery-1.6.1.min.js")
+        script(src="http://code.jquery.com/mobile/1.0b1/jquery.mobile-1.0b1.min.js")
+    body
+        #page(data-role="page", data-url="/fb/select-friend")
+            #header(data-role="header")
+                p Facebook Friend
+            #content(data-role="content")
+                p
+                    | Select the friend from whom wall posts will be included in the feed.
+
+                form(method="POST", action="/fb/select-facebook-source")
+                    - if (friends && friends.data && friends.data.length)
+                    ul(data-role="listview", data-filter="true", data-filter-placeholder="Filter friends...")
+                        - var newChar = '';
+                        - friends.data.forEach(function(friend){
+                            - if (friend.name.charAt(0) !== newChar) {
+                            - newChar = friend.name.charAt(0);
+                            li(data-role="list-divider")= newChar.toUpperCase()
+                            - }
+                            li!= '<img src="http://graph.facebook.com/' + friend.id.toString() + '/picture" alt="' + friend.name + '" /><span>' + friend.name + '</span>'
+                        - })
+                
+                    input(type="submit", value="Next Step", data-icon="arrow-r", data-iconpos="right")
+                a(href="/fb/select-facebook-source", data-role="button", data-icon="arrow-l", data-rel="back") Back To Facebook Source
+
+            #footer(data-role="footer")
+                p &copy; Martin Angers 2011 - Alpha version
