@@ -1,8 +1,19 @@
 #page(data-role="page", data-url="#{url}")
     #header(data-role="header")
-        a(href="/new/select-type/", data-icon="arrow-l", data-direction="reverse") Back
+        a(href="/new/select-type/", data-icon="arrow-l", data-direction="reverse", data-iconpos="notext") Back
         h1 #{subtitle}
-        a(href="/", data-icon="home", data-direction="reverse") Home
+        a(href="/", data-icon="home", data-direction="reverse", data-iconpos="notext") Home
+
+        #navbar(data-role="navbar")
+            ul
+                li
+                    a(href="a.html", class="ui-btn-active") Me
+                li
+                    a(href="b.html") Friends
+                li
+                    a(href="c.html") Pages
+                li
+                    a(href="d.html") Events
     #content(data-role="content")
         p
             | Select the source of the Facebook posts you want to include in your feed.
@@ -19,6 +30,5 @@
                     option(value="eventwall") An Event's Wall
         
             input(type="submit", value="Next Step", data-icon="arrow-r", data-iconpos="right")
-        a(href="/fb?back=1", data-role="button", data-icon="arrow-l") Back To Feed Source
     #footer(data-role="footer")
         p &copy; Martin Angers 2011 - Alpha version
