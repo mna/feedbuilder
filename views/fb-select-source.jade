@@ -7,28 +7,22 @@
         #navbar(data-role="navbar")
             ul
                 li
-                    a(href="a.html", class="ui-btn-active") Me
+                    a(href="/new/select-source/me", data-transition="none", class="ui-btn-active") Me
                 li
-                    a(href="b.html") Friends
+                    a(href="/new/select-source/friends", data-transition="none") Friends
                 li
-                    a(href="c.html") Pages
+                    a(href="/new/select-source/pages", data-transition="none") Pages
                 li
-                    a(href="d.html") Events
+                    a(href="/new/select-source/events", data-transition="none") Events
     #content(data-role="content")
-        p
-            | Select the source of the Facebook posts you want to include in your feed.
-        
         form(method="POST", action="/fb")
-            #menuSource(data-role="fieldcontain")
-                //- label(for="select-fb-source", class="select") Facebook Source:
-                //- br
-                select(name="select-fb-source", id="select-fb-source", data-native-menu="false")
-                    option(value="myfeed") My News Feed
-                    option(value="mywall") My Wall
-                    option(value="friendwall", selected) A Friend's Wall
-                    option(value="pagewall") A Page's Wall
-                    option(value="eventwall") An Event's Wall
-        
+            div(data-role="fieldcontain")
+                fieldset(data-role="controlgroup")
+                    legend Select your feed's source:
+                    input(type="radio", name="rbMe", id="rbMeFeed", value="feed", checked="checked")
+                    label(for="rbMeFeed") My News Feed
+                    input(type="radio", name="rbMe", id="rbMeWall", value="wall")
+                    label(for="rbMeWall") My Wall
             input(type="submit", value="Next Step", data-icon="arrow-r", data-iconpos="right")
     #footer(data-role="footer")
         p &copy; Martin Angers 2011 - Alpha version

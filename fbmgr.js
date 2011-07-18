@@ -45,7 +45,7 @@ FBMGR.renderCurrentStep = function(fb, req, res){
     }
 };
 
-helper.renderSelectInstance = function(fb, req, res, url, cb){
+FBMGR.renderSelectInstance = function(fb, req, res, url, cb){
     fb.apiCall('GET', url, {access_token: req.session.fbToken}, 
                 function (error, response, body) {
                     // TODO Manage errors...
