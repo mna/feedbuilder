@@ -9,26 +9,26 @@
                 li
                     a(href="/new/select-source/me", data-transition="none") Me
                 li
-                    a(href="/new/select-source/friends", data-transition="none", class="ui-btn-active") Friends
+                    a(href="/new/select-source/friends", data-transition="none") Friends
                 li
-                    a(href="/new/select-source/pages", data-transition="none") Pages
+                    a(href="/new/select-source/pages", data-transition="none", class="ui-btn-active") Pages
                 li
                     a(href="/new/select-source/events", data-transition="none") Events
     #content(data-role="content")
         form(method="POST", action="/fb")
             - if (instanceArray && instanceArray.length)
-            ul(data-role="listview", data-filter="true", data-filter-placeholder="Filter friends...")
+            ul(data-role="listview", data-filter="true", data-filter-placeholder="Filter pages...")
                 - var newChar = '';
-                - instanceArray.forEach(function(friend){
-                    - if (friend.name.charAt(0) !== newChar) {
-                    - newChar = friend.name.charAt(0);
+                - instanceArray.forEach(function(page){
+                    - if (page.name.charAt(0) !== newChar) {
+                    - newChar = page.name.charAt(0);
                     li(data-role="list-divider")= newChar.toUpperCase()
                     - }
                     li
                         a(href="home")
                             div
-                                img(src="http://graph.facebook.com/#{friend.id}/picture", alt="#{friend.name}")
-                                = friend.name
+                                img(src="http://graph.facebook.com/#{page.id}/picture", alt="#{page.name}")
+                                = page.name
                 - })
     #footer(data-role="footer")
         span &copy; Martin Angers 2011 - Alpha version    

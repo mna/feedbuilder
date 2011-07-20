@@ -16,13 +16,10 @@
                     a(href="/new/select-source/events", data-transition="none") Events
     #content(data-role="content")
         form(method="POST", action="/fb")
-            div(data-role="fieldcontain")
-                fieldset(data-role="controlgroup")
-                    legend Select your feed's source:
-                    input(type="radio", name="rbMe", id="rbMeFeed", value="feed", checked="checked")
-                    label(for="rbMeFeed") My News Feed
-                    input(type="radio", name="rbMe", id="rbMeWall", value="wall")
-                    label(for="rbMeWall") My Wall
-            input(type="submit", value="Next Step", data-icon="arrow-r", data-iconpos="right")
+            ul(data-role="listview")
+                li 
+                    a(href="") My News Feed
+                li 
+                    a(href="") My Wall
     #footer(data-role="footer")
         p &copy; Martin Angers 2011 - Alpha version
