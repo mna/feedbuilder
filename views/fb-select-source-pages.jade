@@ -15,8 +15,9 @@
                 li
                     a(href="/new/select-source/events", data-transition="none") Events
     #content(data-role="content")
-        form(method="POST", action="/fb")
-            - if (instanceArray && instanceArray.length)
+        form(method="POST", action="/new/select-source/page")
+            input#hidId(type="hidden")
+            - if (instanceArray && instanceArray.length) {
             ul(data-role="listview", data-filter="true", data-filter-placeholder="Filter pages...")
                 - var newChar = '';
                 - instanceArray.forEach(function(page){
@@ -25,10 +26,13 @@
                     li(data-role="list-divider")= newChar.toUpperCase()
                     - }
                     li
-                        a(href="home")
+                        a(href="#", data-item-id="#{page.id}")
                             div
                                 img(src="http://graph.facebook.com/#{page.id}/picture", alt="#{page.name}")
                                 = page.name
                 - })
+            - } else {
+            p No page available.
+            - }
     #footer(data-role="footer")
         span &copy; Martin Angers 2011 - Alpha version    

@@ -15,7 +15,8 @@
                 li
                     a(href="/new/select-source/events", data-transition="none", class="ui-btn-active") Events
     #content(data-role="content")
-        form(method="POST", action="/fb")
+        form(method="POST", action="/new/select-source/event")
+            input#hidId(type="hidden")
             - if (instanceArray && instanceArray.length) {
             ul(data-role="listview", data-filter="true", data-filter-placeholder="Filter events...")
                 - var newChar = '';
@@ -25,7 +26,7 @@
                     li(data-role="list-divider")= newChar.toUpperCase()
                     - }
                     li
-                        a(href="home")
+                        a(href="#", data-item-id="#{evnt.id}")
                             div
                                 img(src="http://graph.facebook.com/#{evnt.id}/picture", alt="#{evnt.name}")
                                 = evnt.name
