@@ -15,12 +15,10 @@
                 li
                     a(href="/new/select-source/events", data-transition="none") Events
     #content(data-role="content")
-        form(method="POST", action="/new/select-source/me")
-            input#hidId(type="hidden")
-            ul(data-role="listview")
-                li 
-                    a(href="#", data-item-id="feed") My News Feed
-                li 
-                    a(href="#", data-item-id="wall") My Wall
+        ul(data-role="listview")
+            li 
+                a(href="/new/select-source/fb/me/feed", rel="external") My News Feed
+            li 
+                a(href="/new/select-source/fb/me/wall", rel="external") My Wall
     #footer(data-role="footer")
         p &copy; Martin Angers 2011 - Alpha version

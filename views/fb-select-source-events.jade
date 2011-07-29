@@ -15,24 +15,22 @@
                 li
                     a(href="/new/select-source/events", data-transition="none", class="ui-btn-active") Events
     #content(data-role="content")
-        form(method="POST", action="/new/select-source/event")
-            input#hidId(type="hidden")
-            - if (instanceArray && instanceArray.length) {
-            ul(data-role="listview", data-filter="true", data-filter-placeholder="Filter events...")
-                - var newChar = '';
-                - instanceArray.forEach(function(evnt){
-                    - if (evnt.name.charAt(0) !== newChar) {
-                    - newChar = evnt.name.charAt(0);
-                    li(data-role="list-divider")= newChar.toUpperCase()
-                    - }
-                    li
-                        a(href="#", data-item-id="#{evnt.id}")
-                            div
-                                img(src="http://graph.facebook.com/#{evnt.id}/picture", alt="#{evnt.name}")
-                                = evnt.name
-                - })
-            - } else {
-            p No event available.
-            - }
+        - if (instanceArray && instanceArray.length) {
+        ul(data-role="listview", data-filter="true", data-filter-placeholder="Filter events...")
+            - var newChar = '';
+            - instanceArray.forEach(function(evnt){
+                - if (evnt.name.charAt(0) !== newChar) {
+                - newChar = evnt.name.charAt(0);
+                li(data-role="list-divider")= newChar.toUpperCase()
+                - }
+                li
+                    a(href="/new/select-source/fb/event/#{evnt.id}", rel="external")
+                        div
+                            img(src="http://graph.facebook.com/#{evnt.id}/picture", alt="#{evnt.name}")
+                            = evnt.name
+            - })
+        - } else {
+        p No event available.
+        - }
     #footer(data-role="footer")
         span &copy; Martin Angers 2011 - Alpha version    

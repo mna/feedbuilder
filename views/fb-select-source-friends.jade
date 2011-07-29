@@ -15,24 +15,22 @@
                 li
                     a(href="/new/select-source/events", data-transition="none") Events
     #content(data-role="content")
-        form(method="POST", action="/new/select-source/friend")
-            input#hidId(type="hidden")
-            - if (instanceArray && instanceArray.length) {
-            ul(data-role="listview", data-filter="true", data-filter-placeholder="Filter friends...")
-                - var newChar = '';
-                - instanceArray.forEach(function(friend){
-                    - if (friend.name.charAt(0) !== newChar) {
-                    - newChar = friend.name.charAt(0);
-                    li(data-role="list-divider")= newChar.toUpperCase()
-                    - }
-                    li
-                        a(href="#", data-item-id="#{friend.id}")
-                            div
-                                img(src="http://graph.facebook.com/#{friend.id}/picture", alt="#{friend.name}")
-                                = friend.name
-                - })
-            - } else {
-            p No friend available.
-            - }
+        - if (instanceArray && instanceArray.length) {
+        ul(data-role="listview", data-filter="true", data-filter-placeholder="Filter friends...")
+            - var newChar = '';
+            - instanceArray.forEach(function(friend){
+                - if (friend.name.charAt(0) !== newChar) {
+                - newChar = friend.name.charAt(0);
+                li(data-role="list-divider")= newChar.toUpperCase()
+                - }
+                li
+                    a(href="/new/select-source/fb/friend/#{friend.id}", rel="external")
+                        div
+                            img(src="http://graph.facebook.com/#{friend.id}/picture", alt="#{friend.name}")
+                            = friend.name
+            - })
+        - } else {
+        p No friend available.
+        - }
     #footer(data-role="footer")
         span &copy; Martin Angers 2011 - Alpha version    
